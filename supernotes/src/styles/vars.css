@@ -1,0 +1,47 @@
+:root {
+	/* Базовая тёмная тема (по умолчанию) */
+	--bg: #1c1b1a;
+	--bg-elev: #262422;
+	--bg-elev-2: #302d2a;
+	--text: #ede8e0;
+	--text-dim: #a09a90;
+	--border: #34302d;
+
+	--accent: #d4a373; /* Тёплый песок */
+	--accent-text: #1c1b1a; /* Текст на акценте */
+	--green: #8aa87e; /* Олива */
+	--yellow: #c9873f; /* Янтарь */
+	--red: #c65c5c; /* Приглушённый красный */
+
+	--bubble: #262422;
+	--bubble-done: #2a3327;
+	--bubble-late: #332a27;
+
+	--radius: 16px;
+	--radius-sm: 10px;
+	--shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+	--safe-top: env(safe-area-inset-top, 0px);
+	--safe-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+[data-theme='light'] {
+	/* Светлая тема */
+	--bg: #f7f5f2;
+	--bg-elev: #ffffff;
+	--bg-elev-2: #efece6;
+	--text: #1f1d1b;
+	--text-dim: #8c8781;
+	--border: #e2ddd6;
+
+	--accent: #b87d4b;
+	--accent-text: #ffffff;
+	--green: #6b8e5a;
+	--yellow: #c9873f;
+	--red: #c65c5c;
+
+	--bubble: #ffffff;
+	--bubble-done: #f0f4ee;
+	--bubble-late: #fcf5eb;
+
+	--shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}

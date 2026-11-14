@@ -1,0 +1,44 @@
+.complete-circle {
+	width: 28px;
+	height: 28px;
+	padding: 0;
+	flex-shrink: 0;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.complete-circle__ring {
+	fill: none;
+	stroke: var(--text-dim);
+	stroke-width: 1.6;
+	transition:
+		stroke 0.2s,
+		fill 0.2s;
+}
+
+.complete-circle__check {
+	stroke: var(--green);
+	stroke-dasharray: 24;
+	stroke-dashoffset: 24;
+	transition: stroke-dashoffset 0.35s ease 0.1s;
+}
+
+.complete-circle--done .complete-circle__ring {
+	stroke: var(--green);
+	fill: rgba(76, 175, 125, 0.12);
+}
+
+.complete-circle--done .complete-circle__check {
+	stroke-dashoffset: 0;
+}
+
+.complete-circle--late .complete-circle__ring {
+	stroke: var(--yellow);
+	fill: rgba(224, 179, 78, 0.12);
+}
+
+.complete-circle--late .complete-circle__check {
+	stroke: var(--yellow);
+	stroke-dashoffset: 0;
+}

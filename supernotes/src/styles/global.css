@@ -1,0 +1,333 @@
+@import './vars.css';
+
+* {
+	box-sizing: border-box;
+	-webkit-tap-highlight-color: transparent;
+}
+
+html,
+body,
+#root {
+	height: 100%;
+	margin: 0;
+}
+
+body {
+	background: var(--bg);
+	color: var(--text);
+	font-family:
+		'Instrument Sans',
+		-apple-system,
+		sans-serif;
+	font-size: 16px;
+	line-height: 1.5;
+	overscroll-behavior: none;
+	transition:
+		background 0.3s ease,
+		color 0.3s ease;
+}
+
+h1,
+h2,
+h3,
+.serif {
+	font-family: 'Fraunces', serif;
+	font-weight: 500;
+	letter-spacing: -0.02em;
+}
+
+button {
+	font: inherit;
+	color: inherit;
+	background: none;
+	border: none;
+	cursor: pointer;
+}
+
+/* Иконки в кнопках */
+.icon-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	color: var(--text-dim);
+	transition:
+		background 0.2s,
+		color 0.2s;
+}
+
+.icon-btn:hover {
+	background: var(--bg-elev-2);
+	color: var(--text);
+}
+
+.btn-primary {
+	background: var(--accent);
+	color: var(--accent-text);
+	padding: 10px 16px;
+	border-radius: var(--radius-sm);
+	font-weight: 500;
+}
+
+/* Модалки */
+.modal-backdrop {
+	position: fixed;
+	inset: 0;
+	background: rgba(0, 0, 0, 0.5);
+	backdrop-filter: blur(4px);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 20px;
+	z-index: 50;
+}
+
+.modal {
+	width: 100%;
+	max-width: 380px;
+	background: var(--bg-elev);
+	border-radius: var(--radius);
+	padding: 24px;
+	box-shadow: var(--shadow);
+	border: 1px solid var(--border);
+}
+
+.field input,
+.field textarea {
+	width: 100%;
+	background: var(--bg);
+	border: 1px solid var(--border);
+	border-radius: var(--radius-sm);
+	padding: 12px 14px;
+	outline: none;
+	transition: border-color 0.2s;
+}
+
+.field input:focus,
+.field textarea:focus {
+	border-color: var(--accent);
+}
+/* --- Общие элементы --- */
+.text-dim {
+	color: var(--text-dim);
+}
+.text-strike {
+	text-decoration: line-through;
+	opacity: 0.6;
+}
+
+.icon-btn--active {
+	background: var(--bg-elev-2);
+}
+
+.error-text {
+	color: var(--red);
+	font-size: 13px;
+	margin-top: 8px;
+}
+
+.modal__header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 20px;
+}
+
+.modal__header h2 {
+	margin: 0;
+}
+
+.modal__actions {
+	display: flex;
+	justify-content: flex-end;
+	gap: 12px;
+	margin-top: 24px;
+}
+
+/* Переключатели (чекбоксы) */
+.toggle-row {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 12px 0;
+	cursor: pointer;
+}
+
+.toggle-row__text {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	font-size: 15px;
+	font-weight: 500;
+}
+
+.toggle-row__icon {
+	color: var(--text-dim);
+}
+
+/* Кастомный чекбокс */
+.toggle-row input[type='checkbox'] {
+	appearance: none;
+	width: 44px;
+	height: 24px;
+	background: var(--bg-elev-2);
+	border-radius: 20px;
+	position: relative;
+	cursor: pointer;
+	outline: none;
+	transition: background 0.2s;
+	border: 1px solid var(--border);
+}
+
+.toggle-row input[type='checkbox']::after {
+	content: '';
+	position: absolute;
+	top: 2px;
+	left: 2px;
+	width: 18px;
+	height: 18px;
+	background: var(--text-dim);
+	border-radius: 50%;
+	transition:
+		transform 0.2s,
+		background 0.2s;
+}
+
+.toggle-row input[type='checkbox']:checked {
+	background: var(--accent);
+	border-color: var(--accent);
+}
+
+.toggle-row input[type='checkbox']:checked::after {
+	transform: translateX(20px);
+	background: #fff;
+}
+
+/* --- Экран просмотра заметки --- */
+.note-view {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	background: var(--bg);
+}
+
+.note-view__header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 12px 16px;
+	border-bottom: 1px solid var(--border);
+}
+
+.note-view__content {
+	padding: 24px 20px;
+	overflow-y: auto;
+}
+
+.note-view__title {
+	font-size: 28px;
+	margin: 0 0 12px;
+	line-height: 1.2;
+}
+
+.note-view__meta {
+	display: flex;
+	gap: 16px;
+	font-size: 13px;
+	color: var(--text-dim);
+	margin-bottom: 24px;
+	padding-bottom: 16px;
+	border-bottom: 1px solid var(--border);
+}
+
+.note-view__body {
+	font-size: 16px;
+	line-height: 1.6;
+	white-space: pre-wrap;
+}
+
+/* --- Экран редактора заметки --- */
+.note-editor {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	background: var(--bg);
+}
+
+.note-editor__header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 12px 16px;
+	border-bottom: 1px solid var(--border);
+}
+
+.note-editor__content {
+	padding: 24px 20px;
+	overflow-y: auto;
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+}
+
+.note-editor__title {
+	background: transparent;
+	border: none;
+	font-size: 28px;
+	color: var(--text);
+	outline: none;
+	padding: 0;
+}
+
+.note-editor__title::placeholder {
+	color: var(--text-dim);
+	opacity: 0.5;
+}
+
+.note-editor__body {
+	background: transparent;
+	border: none;
+	font-size: 16px;
+	color: var(--text);
+	outline: none;
+	resize: none;
+	min-height: 150px;
+	line-height: 1.6;
+	padding: 0;
+}
+
+.note-editor__body::placeholder {
+	color: var(--text-dim);
+	opacity: 0.5;
+}
+
+.note-editor__deadline-block {
+	background: var(--bg-elev);
+	border: 1px solid var(--border);
+	border-radius: var(--radius-sm);
+	padding: 0 16px;
+	margin-top: 16px;
+}
+
+.deadline-inputs {
+	display: flex;
+	gap: 12px;
+	padding-bottom: 16px;
+	border-top: 1px solid var(--border);
+	padding-top: 16px;
+}
+
+/* Иконка замка в модалке */
+.unlock-icon-wrap {
+	width: 64px;
+	height: 64px;
+	background: var(--bg-elev-2);
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--accent);
+	margin: 0 auto;
+}
